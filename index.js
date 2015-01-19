@@ -17,7 +17,7 @@ app.use(function (err, req, res, next) {
 	}
 });
 
-var port = process.env.PORT || 5000;	//specify port  
+var port = 8080;	//specify port  
 var parseRoute = express.Router();		// get an instance of the express Router
 
  parseRoute.get('/', function(req, res) {
