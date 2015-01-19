@@ -18,15 +18,9 @@ app.use(function (err, req, res, next) {
 });
 
 var port = 8080;	//specify port  
-var parseRoute = express.Router();		// get an instance of the express Router
 
- parseRoute.get('/', function(req, res) {
-     res.json({ message: 'Test to make sure this route works.' });   
- });
+app.post ('/', function (req, res) {
 
-// handle any POSTs on the route /api/input
-parseRoute.route('/input')
-    .post(function(req, res) {
 		//grab the payload
         var str = req.body.payload;
 		var response = [];
@@ -41,11 +35,8 @@ parseRoute.route('/input')
 		//send back response	
 		res.contentType('application/json');
         res.json({response:response});
-    }
-);
-
-// root path (parent level)
-app.use('/api', parseRoute);
+    
+});
 
 // listen for any POSTs
 app.listen(port);
